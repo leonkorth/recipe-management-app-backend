@@ -1,3 +1,5 @@
+[![Deploy](https://github.com/leonkorth/recipe-management-app/actions/workflows/gradle.yml/badge.svg)](https://github.com/leonkorth/recipe-management-app/actions/workflows/gradle.yml)
+
 # recipe-management-app
 
 A tiny web application to gather and search for cooking/baking recipes.
@@ -15,3 +17,4 @@ This app is created in the context of the course Webtechnologien at the HTW-Berl
 + adding more properties to recipes (e.g. no baking, vegan, time for preparation) and filtering for those
 + a picture for every recipe and set
 + search on basis of available ingredients for recipes with the least missing ones
+
