@@ -1,4 +1,4 @@
-[![Deploy](https://github.com/leonkorth/recipe-management-app/actions/workflows/gradle.yml/badge.svg)](https://github.com/leonkorth/recipe-management-app/actions/workflows/gradle.yml)
+[![Deploy](https://github.com/leonkorth/recipe-management-app/actions/workflows/gradle.yml/badge.svg)](https://github.com/leonkorth/recipe-management-app/actions/workflows/gradle.yml) [![CD](https://github.com/leonkorth/recipe-management-app/actions/workflows/main.yml/badge.svg)](https://github.com/leonkorth/recipe-management-app/actions/workflows/main.yml)
 
 # recipe-management-app
 
