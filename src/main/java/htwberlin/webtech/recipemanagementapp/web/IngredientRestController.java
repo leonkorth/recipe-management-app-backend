@@ -20,7 +20,7 @@ public class IngredientRestController {
 
     }
 
-    @GetMapping(path = "/api/v1/ingredient")
+    @GetMapping(path = "/api/v1/ingredients")
     public ResponseEntity<List<Ingredient>> fetchIngredients(){
         return ResponseEntity.ok(ingredients);
     }
