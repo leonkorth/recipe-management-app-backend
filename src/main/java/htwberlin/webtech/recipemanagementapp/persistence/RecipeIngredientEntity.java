@@ -9,11 +9,11 @@ import java.util.Objects;
 public class RecipeIngredientEntity implements Serializable {
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "recipeId", referencedColumnName = "id")
     private RecipeEntity recipeEntity;
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ingredientId", referencedColumnName = "id")
     private IngredientEntity ingredientEntity;
     @Column(name = "amount", nullable = false)
