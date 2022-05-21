@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="Ingredient")
-public class IngredientEntity {
+public class IngredientEntity  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +36,26 @@ public class IngredientEntity {
     public void setVegan(boolean vegan) {
         if (vegan) {this.setVegetarian(true);}
         this.vegan = vegan;
+    }
+
+    public IngredientEntity(Long id, String name, boolean vegetarian, boolean vegan) {
+        this.id = id;
+        this.name = name;
+        this.vegetarian = vegetarian;
+        this.vegan = vegan;
+    }
+
+    public IngredientEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "IngredientEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", vegetarian=" + vegetarian +
+                ", vegan=" + vegan +
+                ", recipeIngredientEntities=" + recipeIngredientEntities +
+                '}';
     }
 }

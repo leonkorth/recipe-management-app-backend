@@ -20,8 +20,9 @@ public class RecipeEntity {
     private LocalTime prepTime;
     @Column(name = "servings")
     private int servings;
-    @Column(name="instructions", nullable = false)
+    @Column(name="instructions", nullable = false, length = 1000)
     private String instructions;
+
     @OneToMany(mappedBy = "recipeEntity", orphanRemoval = true)
     private List<RecipeIngredientEntity> recipeIngredientEntities = new ArrayList<>();
 
@@ -59,5 +60,28 @@ public class RecipeEntity {
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
+    }
+
+    public RecipeEntity(Long id, String name, LocalTime prepTime, int servings, String instructions) {
+        this.id = id;
+        this.name = name;
+        this.prepTime = prepTime;
+        this.servings = servings;
+        this.instructions = instructions;
+    }
+
+    public RecipeEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "RecipeEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", prepTime=" + prepTime +
+                ", servings=" + servings +
+                ", instructions='" + instructions + '\'' +
+                ", recipeIngredientEntities=" + recipeIngredientEntities +
+                '}';
     }
 }

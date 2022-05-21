@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class IngredientService {
+public class IngredientService{
 
     @Autowired
     IngredientRepository repository;
@@ -16,11 +16,19 @@ public class IngredientService {
         return repository.save(ingredientEntity);
     }
 
-    public List<IngredientEntity> findAllVegetarian() {
-        return repository.findIngredientEntitiesByVegetarian(true);
+    public List<IngredientEntity> findByVegetarian(boolean isVegetarian) {
+        return repository.findIngredientEntitiesByVegetarian(isVegetarian);
     }
 
-    public List<IngredientEntity> findAllVegan() {
-        return repository.findIngredientEntitiesByVegan(true);
+    public List<IngredientEntity> findByVegan(boolean isVegan) {
+        return repository.findIngredientEntitiesByVegan(isVegan);
     }
+
+    public IngredientEntity findById(Long id){
+        return repository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+
+
+
 }

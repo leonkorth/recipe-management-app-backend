@@ -4,45 +4,96 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@IdClass(RecipeIngredientPK.class)
+
 @Entity(name = "Recipe_Ingredient_Entity")
 public class RecipeIngredientEntity implements Serializable {
 
-    @Id
+    @EmbeddedId
+    RecipeIngredientPK id;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "recipe_id", referencedColumnName = "id")
     private RecipeEntity recipeEntity;
-    @Id
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ingredient_id", referencedColumnName = "id")
     private IngredientEntity ingredientEntity;
+
     @Column(name = "amount", nullable = false)
     private double amount;
     @Column(name = "unit", nullable = false)
     private String unit;
 
-    public RecipeEntity getRecipeEntity() {return recipeEntity;}
+    public RecipeIngredientPK getId() {
+        return id;
+    }
 
-    public IngredientEntity getIngredientEntity() {return ingredientEntity;}
+    public void setId(RecipeIngredientPK id) {
+        this.id = id;
+    }
 
-    public double getAmount() {return amount;}
-    public void setAmount(double amount) {this.amount = amount;}
+    public RecipeEntity getRecipeEntity() {
+        return recipeEntity;
+    }
 
-    public String getUnit() {return unit;}
-    public void setUnit(String unit) {this.unit = unit;}
+    public void setRecipeEntity(RecipeEntity recipeEntity) {
+        this.recipeEntity = recipeEntity;
+    }
+
+    public IngredientEntity getIngredientEntity() {
+        return ingredientEntity;
+    }
+
+    public void setIngredientEntity(IngredientEntity ingredientEntity) {
+        this.ingredientEntity = ingredientEntity;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof RecipeIngredientEntity)) return false;
-        //we can now assume o to be of the same type and want to access the types attributes
+        if (o == null || getClass() != o.getClass()) return false;
         RecipeIngredientEntity that = (RecipeIngredientEntity) o;
-        return Objects.equals(getRecipeEntity(), that.getRecipeEntity()) &&
-        Objects.equals(getIngredientEntity(), that.getIngredientEntity());}
+        return Double.compare(that.amount, amount) == 0 && Objects.equals(id, that.id) && Objects.equals(recipeEntity, that.recipeEntity) && Objects.equals(ingredientEntity, that.ingredientEntity) && Objects.equals(unit, that.unit);
+    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRecipeEntity(), getIngredientEntity());
+        return Objects.hash(id, recipeEntity, ingredientEntity, amount, unit);
     }
 
+    public RecipeIngredientEntity(RecipeIngredientPK id, RecipeEntity recipeEntity, IngredientEntity ingredientEntity, double amount, String unit) {
+        this.id = id;
+        this.recipeEntity = recipeEntity;
+        this.ingredientEntity = ingredientEntity;
+        this.amount = amount;
+        this.unit = unit;
+    }
+
+    public RecipeIngredientEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "RecipeIngredientEntity{" +
+                "id=" + id +
+                ", recipeEntity=" + recipeEntity +
+                ", ingredientEntity=" + ingredientEntity +
+                ", amount=" + amount +
+                ", unit='" + unit + '\'' +
+                '}';
+    }
 }

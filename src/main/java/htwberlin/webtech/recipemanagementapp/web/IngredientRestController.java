@@ -3,15 +3,10 @@ package htwberlin.webtech.recipemanagementapp.web;
 import htwberlin.webtech.recipemanagementapp.persistence.IngredientEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.IngredientRepository;
 import htwberlin.webtech.recipemanagementapp.service.IngredientService;
-import htwberlin.webtech.recipemanagementapp.web.api.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,7 +20,7 @@ public class IngredientRestController {
     @Autowired
     IngredientService service;
 
-    @PostMapping(path = "/api/v1/ingredient")
+    @PostMapping(path = "/api/v1/ingredients")
     public IngredientEntity createIngredient(@RequestBody IngredientEntity ingredientEntity) {
         return service.createIngredient(ingredientEntity);
     }
@@ -35,4 +30,18 @@ public class IngredientRestController {
         return ResponseEntity.ok(ingredientRepository.findAll());
     }
 
-}
+    @GetMapping(path = "/api/v1/ingredients/{id}")
+    public IngredientEntity getIngredientById(@PathVariable String id){
+        return service.findById(Long.parseLong(id));
+    }
+
+    @GetMapping(path = "/api/v1/ingredients", params = "isVegetarian")
+    public ResponseEntity<List<IngredientEntity>> getIngredientsByVegetarian(@RequestParam boolean isVegetarian){
+        return ResponseEntity.ok(service.findByVegetarian(isVegetarian));
+    }
+
+    @GetMapping(path = "/api/v1/ingredients", params = "isVegan")
+    public ResponseEntity<List<IngredientEntity>> getIngredientsByVegan(@RequestParam boolean isVegan){
+        return ResponseEntity.ok(service.findByVegan(isVegan));
+    }
+    }
