@@ -10,11 +10,11 @@ public class RecipeIngredientEntity implements Serializable {
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "recipeId", referencedColumnName = "id")
+    @JoinColumn(name = "recipe_id", referencedColumnName = "id")
     private RecipeEntity recipeEntity;
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ingredientId", referencedColumnName = "id")
+    @JoinColumn(name = "ingredient_id", referencedColumnName = "id")
     private IngredientEntity ingredientEntity;
     @Column(name = "amount", nullable = false)
     private double amount;

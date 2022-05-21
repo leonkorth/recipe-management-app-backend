@@ -1,5 +1,7 @@
 package htwberlin.webtech.recipemanagementapp.persistence;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class RecipeEntity {
     @Column(name="name", unique = true, nullable = false)
     private String name;
     @Column(name="prep_time")
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime prepTime;
     @Column(name = "servings")
     private int servings;
