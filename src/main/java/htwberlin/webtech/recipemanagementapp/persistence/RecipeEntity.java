@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity(name="Recipe")
 public class RecipeEntity {
-
+    //test
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
