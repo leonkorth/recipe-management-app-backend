@@ -44,4 +44,16 @@ public class IngredientRestController {
     public ResponseEntity<List<IngredientEntity>> getIngredientsByVegan(@RequestParam boolean isVegan){
         return ResponseEntity.ok(service.findByVegan(isVegan));
     }
+
+    @PutMapping(path = "/api/v1/ingredients/{id}")
+    public ResponseEntity<IngredientEntity> updateIngredient(@PathVariable Long id, @RequestBody IngredientEntity entity) {
+    var ingredient = service.updateIngredient(id, entity);
+    return ingredient != null? ResponseEntity.ok(ingredient) : ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping(path = "/api/v1/ingredients/{id}")
+    public ResponseEntity<Void> deleteIngredient(@PathVariable Long id) {
+        boolean successful = service.deleteIngredient(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
+}

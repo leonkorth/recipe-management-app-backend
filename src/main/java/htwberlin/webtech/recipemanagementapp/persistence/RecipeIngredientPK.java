@@ -11,8 +11,6 @@ public class RecipeIngredientPK implements Serializable {
     private Long ingredientId;
 
     public Long getRecipeId() {
-
-
         return recipeId;
     }
 

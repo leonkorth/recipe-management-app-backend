@@ -25,6 +25,9 @@ public class RecipeService {
     public RecipeEntity createRecipe(RecipeEntity recipeEntity){
         return repository.save(recipeEntity);
     }
+    public void deleteRecipe(RecipeEntity recipeEntity) {
+        repository.delete(recipeEntity);
+    }
 
     public List<RecipeEntity> findAll(){
         return repository.findAll();

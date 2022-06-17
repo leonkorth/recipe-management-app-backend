@@ -16,7 +16,7 @@ public class IngredientEntity  {
     private boolean vegetarian;
     @Column(name = "vegan")
     private boolean vegan;
-    @OneToMany(mappedBy = "ingredientEntity", orphanRemoval = true)
+    @OneToMany(mappedBy = "ingredientEntity", orphanRemoval = false)
     private List<RecipeIngredientEntity> recipeIngredientEntities = new ArrayList<>();
 
     public Long getId() {return id;}

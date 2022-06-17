@@ -1,5 +1,6 @@
 package htwberlin.webtech.recipemanagementapp.service;
 
+import htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.RecipeIngredientEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.RecipeIngredientPK;
 import htwberlin.webtech.recipemanagementapp.persistence.RecipeIngredientRepository;
@@ -23,7 +24,6 @@ public class RecipeIngredientService {
     public List<RecipeIngredientEntity> findAll(){
         return repository.findAll();
     }
-
 
 
 
