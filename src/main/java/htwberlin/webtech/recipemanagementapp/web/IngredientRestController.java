@@ -31,8 +31,14 @@ public class IngredientRestController {
     }
 
     @GetMapping(path = "/api/v1/ingredients/{id}")
-    public IngredientEntity getIngredientById(@PathVariable String id){
-        return service.findById(Long.parseLong(id));
+    public IngredientEntity getIngredientById(@PathVariable Long id){
+        return service.findById(id);
+    }
+
+    @GetMapping(path = "/api/v1/ingredients", params = "name")
+    public ResponseEntity<IngredientEntity> getIngredientByName(@RequestParam String name){
+        IngredientEntity ingredient = service.findByName(name);
+        return ingredient != null? ResponseEntity.ok(ingredient) : ResponseEntity.notFound().build();
     }
 
     @GetMapping(path = "/api/v1/ingredients", params = "isVegetarian")

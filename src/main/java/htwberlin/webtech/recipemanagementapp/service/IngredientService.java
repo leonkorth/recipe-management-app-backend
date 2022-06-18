@@ -24,11 +24,16 @@ public class IngredientService{
     }
 
     public List<IngredientEntity> findByVegan(boolean isVegan) {
-        return repository.findIngredientEntitiesByVegan(isVegan);
+        return repository.findByVegan(isVegan);
     }
 
     public IngredientEntity findById(Long id){
         return repository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    public IngredientEntity findByName(String name) {
+        var ingredientEntity = repository.findFirstByName(name);
+        return ingredientEntity.isPresent()? ingredientEntity.get() : null;
     }
 
     public IngredientEntity updateIngredient(Long id, IngredientEntity entity) {
