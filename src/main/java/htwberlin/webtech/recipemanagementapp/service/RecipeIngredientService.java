@@ -26,5 +26,8 @@ public class RecipeIngredientService {
     }
 
 
+    public List<RecipeIngredientEntity> findByRecipeId(RecipeEntity recipeEntity){
+        return repository.findRecipeIngredientEntitiesByRecipeEntity(recipeEntity);
+    }
 
 }
