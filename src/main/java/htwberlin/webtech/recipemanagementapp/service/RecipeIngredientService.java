@@ -21,10 +21,31 @@ public class RecipeIngredientService {
         return repository.save(recipeIngredientEntity);
     }
 
+    public RecipeIngredientEntity updateRecipeIngredient(Long rId, Long iId, RecipeIngredientEntity entity) {
+        var recipeIngredientEntity = repository.findRecipeIngredientEntityByRecipeEntity_IdAndIngredientEntity_Id(rId, iId);
+        if (recipeIngredientEntity == null) {
+            return null;
+        }
+        recipeIngredientEntity.setId(entity.getId());
+        recipeIngredientEntity.setRecipeEntity(entity.getRecipeEntity());
+        recipeIngredientEntity.setIngredientEntity(entity.getIngredientEntity());
+        recipeIngredientEntity.setAmount(entity.getAmount());
+        recipeIngredientEntity.setUnit(entity.getUnit());
+        recipeIngredientEntity = repository.save(recipeIngredientEntity);
+        return recipeIngredientEntity;
+    }
+
+    public boolean deleteRecipeIngredient(Long rId, Long iId) {
+        if (repository.findRecipeIngredientEntityByRecipeEntity_IdAndIngredientEntity_Id(rId, iId) == null) {
+            return false;
+        }
+        repository.delete(repository.findRecipeIngredientEntityByRecipeEntity_IdAndIngredientEntity_Id(rId, iId));
+        return true;
+    }
+
     public List<RecipeIngredientEntity> findAll(){
         return repository.findAll();
     }
-
 
     public List<RecipeIngredientEntity> findByRecipeId(RecipeEntity recipeEntity){
         return repository.findRecipeIngredientEntitiesByRecipeEntity(recipeEntity);

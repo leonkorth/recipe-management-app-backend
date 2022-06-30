@@ -1,5 +1,6 @@
 package htwberlin.webtech.recipemanagementapp.web;
 
+import htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.RecipeIngredientEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.RecipeIngredientPK;
 import htwberlin.webtech.recipemanagementapp.service.RecipeIngredientService;
@@ -34,6 +35,16 @@ public class RecipeIngredientRestController {
         return ResponseEntity.ok(service.findByRecipeId(recipeService.findById(recipeId))) ;
     }
 
+    @PutMapping(path = "/api/v1/recipeIngredients/{rId}/{iId}")
+    public ResponseEntity<RecipeIngredientEntity> updateRecipeIngredient(@PathVariable Long rId, @PathVariable Long iId, @RequestBody RecipeIngredientEntity entity) {
+        var recipeIngredient = service.updateRecipeIngredient(rId, iId, entity);
+        return recipeIngredient != null? ResponseEntity.ok(recipeIngredient) : ResponseEntity.notFound().build();
+    }
 
+    @DeleteMapping(path = "/api/v1/recipeIngredients/{rId}/{iId}")
+    public ResponseEntity<Void> deleteRecipeIngredient(@PathVariable Long rId, @PathVariable Long iId) {
+        boolean successful = service.deleteRecipeIngredient(rId, iId);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 
 }
