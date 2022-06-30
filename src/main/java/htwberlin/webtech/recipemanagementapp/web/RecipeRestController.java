@@ -45,5 +45,15 @@ public class RecipeRestController {
         return ResponseEntity.ok(service.findRecipeByIngredient(Long.parseLong(ingredientId)));
     }
 
+    @PutMapping(path = "/api/v1/ingredients/{id}")
+    public ResponseEntity<IngredientEntity> updateIngredient(@PathVariable Long id, @RequestBody IngredientEntity entity) {
+        var ingredient = service.updateIngredient(id, entity);
+        return ingredient != null? ResponseEntity.ok(ingredient) : ResponseEntity.notFound().build();
+    }
 
+    @DeleteMapping(path = "/api/v1/recipes/{id}")
+    public ResponseEntity<Void> deleteRecipe(@PathVariable Long id) {
+        boolean successful = service.deleteRecipe(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 }
