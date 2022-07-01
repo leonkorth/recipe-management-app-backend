@@ -1,6 +1,9 @@
 package htwberlin.webtech.recipemanagementapp.persistence;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -18,8 +21,11 @@ public class RecipeIngredientEntity implements Serializable {
     private IngredientEntity ingredientEntity;
 
     @Column(name = "amount", nullable = false)
+    @NotNull
+    @PositiveOrZero(message = "value must be positive or zero")
     private double amount;
     @Column(name = "unit", nullable = false)
+    @NotNull(message = "value must not be null")
     private String unit;
 
     public RecipeIngredientPK getId() {

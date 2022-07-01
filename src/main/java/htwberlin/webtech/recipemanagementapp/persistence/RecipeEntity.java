@@ -3,6 +3,7 @@ package htwberlin.webtech.recipemanagementapp.persistence;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,18 @@ public class RecipeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name="name", unique = true, nullable = false)
+    @NotBlank(message = "the name must not be empty")
+    @Size(min = 3, max = 30, message = "please provide a name between 3 and 30 characters ")
     private String name;
     @Column(name="prep_time")
     @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime prepTime;
     @Column(name = "servings")
+    @Min(value = 1, message = "the value must be equal or higher 1")
+    @Max(value = 1000, message = "the value must be equal or less 1000")
     private int servings;
     @Column(name="instructions", nullable = false, length = 1000)
+    @Size(min = 1, max = 999, message = "please provide instructions between 1 and 999 characters ")
     private String instructions;
 
     @OneToMany(mappedBy = "recipeEntity", orphanRemoval = true)

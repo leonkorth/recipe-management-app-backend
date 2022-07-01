@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -26,7 +27,7 @@ public class RecipeRestController {
     RecipeService service;
 
     @PostMapping(path = "/api/v1/recipes")
-    public RecipeEntity createRecipe(@RequestBody RecipeEntity recipeEntity){
+    public RecipeEntity createRecipe(@Valid @RequestBody RecipeEntity recipeEntity){
         return service.createRecipe(recipeEntity);
     }
 

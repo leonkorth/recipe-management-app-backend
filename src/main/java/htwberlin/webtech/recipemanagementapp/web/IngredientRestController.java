@@ -4,9 +4,11 @@ import htwberlin.webtech.recipemanagementapp.persistence.IngredientEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.IngredientRepository;
 import htwberlin.webtech.recipemanagementapp.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +23,7 @@ public class IngredientRestController {
     IngredientService service;
 
     @PostMapping(path = "/api/v1/ingredients")
-    public IngredientEntity createIngredient(@RequestBody IngredientEntity ingredientEntity) {
+    public IngredientEntity createIngredient(@Valid @RequestBody IngredientEntity ingredientEntity) {
         return service.createIngredient(ingredientEntity);
     }
 

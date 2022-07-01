@@ -1,6 +1,9 @@
 package htwberlin.webtech.recipemanagementapp.persistence;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +14,14 @@ public class IngredientEntity  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", unique = true, nullable = false)
+    @NotBlank(message = "the name must not be empty")
+    @Size(min = 3, max = 30, message = "please provide a name between 3 and 30 characters ")
     private String name;
     @Column(name = "vegetarian")
+    @NotNull
     private boolean vegetarian;
     @Column(name = "vegan")
+    @NotNull
     private boolean vegan;
     @OneToMany(mappedBy = "ingredientEntity", orphanRemoval = false)
     private List<RecipeIngredientEntity> recipeIngredientEntities = new ArrayList<>();

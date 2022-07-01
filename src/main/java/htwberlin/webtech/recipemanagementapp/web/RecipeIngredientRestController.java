@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class RecipeIngredientRestController {
     RecipeService recipeService;
 
     @PostMapping(path = "/api/v1/recipeIngredients")
-    public RecipeIngredientEntity createRecipeIngredient(@RequestBody RecipeIngredientEntity recipeIngredientEntity){
+    public RecipeIngredientEntity createRecipeIngredient(@Valid @RequestBody RecipeIngredientEntity recipeIngredientEntity){
         return service.createRecipeIngredient(recipeIngredientEntity);
     }
 
