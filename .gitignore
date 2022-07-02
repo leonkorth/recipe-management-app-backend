@@ -24,3 +24,15 @@ hs_err_pid*
 # .gradle and .idea
 .gradle
 .idea
+ *.iws
+ *.iml
+ *.ipr
+ out/
+ !**/src/main/**/out/
+ !**/src/test/**/out/
+
+HELP.md
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
