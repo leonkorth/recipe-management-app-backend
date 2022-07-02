@@ -2,6 +2,7 @@ package htwberlin.webtech.recipemanagementapp.service;
 
 import htwberlin.webtech.recipemanagementapp.persistence.IngredientEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.IngredientRepository;
+import htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity;
 import htwberlin.webtech.recipemanagementapp.persistence.RecipeIngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,10 @@ public class IngredientService{
     @Autowired
     RecipeIngredientRepository recipeIngredientRepository;
 
+
+    public List<IngredientEntity> findAll(){
+        return repository.findAll();
+    }
     public IngredientEntity createIngredient(IngredientEntity ingredientEntity) {
         return repository.save(ingredientEntity);
     }
@@ -28,7 +33,7 @@ public class IngredientService{
     }
 
     public IngredientEntity findById(Long id){
-        return repository.findById(id).orElseThrow(RuntimeException::new);
+        return repository.findById(id).orElse(null);
     }
 
     public IngredientEntity findByName(String name) {

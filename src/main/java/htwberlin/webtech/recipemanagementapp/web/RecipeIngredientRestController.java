@@ -33,7 +33,8 @@ public class RecipeIngredientRestController {
 
     @GetMapping(path = "/api/v1/recipeIngredients", params = "recipeId")
     public ResponseEntity<List<RecipeIngredientEntity>> getRecipeIngredientByRecipeId(@RequestParam Long recipeId){
-        return ResponseEntity.ok(service.findByRecipeId(recipeService.findById(recipeId))) ;
+        var recipeIngredients = service.findByRecipeId(recipeService.findById(recipeId));
+        return recipeIngredients != null && !recipeIngredients.isEmpty()? ResponseEntity.ok(recipeIngredients) : ResponseEntity.notFound().build();
     }
 
     @PutMapping(path = "/api/v1/recipeIngredients/{rId}/{iId}")

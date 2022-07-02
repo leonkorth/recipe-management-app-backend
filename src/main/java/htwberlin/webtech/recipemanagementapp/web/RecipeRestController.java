@@ -16,13 +16,6 @@ import java.util.List;
 
 @RestController
 public class RecipeRestController {
-
-    private final RecipeRepository recipeRepository;
-
-    public RecipeRestController(RecipeRepository recipeRepository) {
-        this.recipeRepository = recipeRepository;
-    }
-
     @Autowired
     RecipeService service;
 
@@ -37,13 +30,15 @@ public class RecipeRestController {
     }
 
     @GetMapping(path = "/api/v1/recipes/{id}")
-    public RecipeEntity getRecipeByName(@PathVariable String id){
-        return service.findById(Long.parseLong(id));
+    public ResponseEntity<RecipeEntity> getRecipeByName(@PathVariable String id){
+        var recipe =  service.findById(Long.parseLong(id));
+        return recipe != null ? ResponseEntity.ok(recipe) : ResponseEntity.notFound().build();
     }
 
     @GetMapping(path = "/api/v1/recipes", params = "ingredientId")
     public ResponseEntity<List<RecipeEntity>> getRecipeByIngredientId(@RequestParam String ingredientId){
-        return ResponseEntity.ok(service.findRecipeByIngredient(Long.parseLong(ingredientId)));
+        var recipes = service.findRecipeByIngredient(Long.parseLong(ingredientId));
+        return recipes != null && !recipes.isEmpty() ? ResponseEntity.ok(recipes) : ResponseEntity.notFound().build();
     }
 
     @PutMapping(path = "/api/v1/recipes/{id}")

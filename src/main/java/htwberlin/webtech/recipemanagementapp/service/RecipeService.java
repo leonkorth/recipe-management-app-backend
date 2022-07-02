@@ -53,16 +53,16 @@ public class RecipeService {
         return repository.findAll();
     }
     public RecipeEntity findById(Long id){
-        return repository.findById(id).orElseThrow(RuntimeException::new);
+        return repository.findById(id).orElse(null);
     }
 
     public List<RecipeEntity> findRecipeByIngredient(Long ingredientId){
 
-        return  recipeIngredientService.findAll()
+        return recipeIngredientService.findAll()
                 .stream()
                 .filter(x -> Objects.equals(x.getIngredientEntity().getId(), ingredientId)
-                                && Objects.equals(x.getId().getIngredientId(), ingredientId)
-                        )
+                        && Objects.equals(x.getId().getIngredientId(), ingredientId)
+                )
                 .map(RecipeIngredientEntity::getRecipeEntity)
                 .toList();
     }

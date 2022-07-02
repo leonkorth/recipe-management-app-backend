@@ -9,7 +9,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doReturn;

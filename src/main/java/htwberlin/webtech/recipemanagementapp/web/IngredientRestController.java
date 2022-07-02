@@ -6,6 +6,7 @@ import htwberlin.webtech.recipemanagementapp.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -14,11 +15,7 @@ import java.util.List;
 @RestController
 public class IngredientRestController {
 
-    private final IngredientRepository ingredientRepository;
 
-    public IngredientRestController(IngredientRepository ingredientRepository) {
-        this.ingredientRepository = ingredientRepository;
-    }
     @Autowired
     IngredientService service;
 
@@ -29,12 +26,13 @@ public class IngredientRestController {
 
     @GetMapping(path = "/api/v1/ingredients")
     public ResponseEntity<List<IngredientEntity>> fetchIngredients(){
-        return ResponseEntity.ok(ingredientRepository.findAll());
+        return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(path = "/api/v1/ingredients/{id}")
-    public IngredientEntity getIngredientById(@PathVariable Long id){
-        return service.findById(id);
+    public ResponseEntity<IngredientEntity> getIngredientById(@PathVariable Long id){
+        var ingredient = service.findById(id);
+        return ingredient != null ? ResponseEntity.ok(ingredient) : ResponseEntity.notFound().build();
     }
 
     @GetMapping(path = "/api/v1/ingredients", params = "name")
