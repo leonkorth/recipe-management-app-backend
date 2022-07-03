@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="htwberlin.webtech.recipemanagementapp.service.IngredientServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-02T10:45:30" hostname="MacBook-Air-von-Leon.local" time="0.038">
+<testsuite name="htwberlin.webtech.recipemanagementapp.service.IngredientServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-02T13:14:47" hostname="MacBook-Air-von-Leon.local" time="0.062">
   <properties/>
-  <testcase name="should return false if ingredient doesnt exist" classname="htwberlin.webtech.recipemanagementapp.service.IngredientServiceTest" time="0.038"/>
+  <testcase name="should return false if ingredient doesnt exist" classname="htwberlin.webtech.recipemanagementapp.service.IngredientServiceTest" time="0.062"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

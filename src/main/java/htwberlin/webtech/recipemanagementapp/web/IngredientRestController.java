@@ -60,6 +60,6 @@ public class IngredientRestController {
     @DeleteMapping(path = "/api/v1/ingredients/{id}")
     public ResponseEntity<Void> deleteIngredient(@PathVariable Long id) {
         boolean successful = service.deleteIngredient(id);
-        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+        return successful? ResponseEntity.ok().build() : ResponseEntity.status(400).build();
     }
 }
