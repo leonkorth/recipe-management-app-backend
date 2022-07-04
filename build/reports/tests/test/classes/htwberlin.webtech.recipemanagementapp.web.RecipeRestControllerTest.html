@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.017s</div>
+<div class="counter">0.014s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,13 +81,13 @@
 <tr>
 <td class="success">should validate create recipe request</td>
 <td class="success">createRecipeWithInvalidateName()</td>
-<td class="success">0.010s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">should return all recipes in json format</td>
 <td class="success">findAllRecipes()</td>
-<td class="success">0.004s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -101,12 +101,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2022-07-02 15:14:47.647  INFO 52137 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest], using SpringBootContextLoader
-2022-07-02 15:14:47.647  INFO 52137 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2022-07-02 15:14:47.647  INFO 52137 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest]: RecipeRestControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2022-07-02 15:14:47.648  INFO 52137 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration htwberlin.webtech.recipemanagementapp.RecipeManagementAppApplication for test class htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest
-2022-07-02 15:14:47.649  INFO 52137 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2022-07-02 15:14:47.649  INFO 52137 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2298d741, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@34a48013, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@50e7d8ba, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@210e4678, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4548bfc7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@557c0b65, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3b303b78, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@685e97e0, org.springframework.test.context.event.EventPublishingTestExecutionListener@68e8bbab, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5dfaa2f0, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@672ba9cc, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7bd6c35e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@564e0a6c, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5eabcf77, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@647468a7]
+<pre>2022-07-04 10:38:21.934  INFO 84450 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest], using SpringBootContextLoader
+2022-07-04 10:38:21.935  INFO 84450 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-07-04 10:38:21.935  INFO 84450 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest]: RecipeRestControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-07-04 10:38:21.936  INFO 84450 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration htwberlin.webtech.recipemanagementapp.RecipeManagementAppApplication for test class htwberlin.webtech.recipemanagementapp.web.RecipeRestControllerTest
+2022-07-04 10:38:21.936  INFO 84450 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-07-04 10:38:21.936  INFO 84450 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@373c367, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@79690a0a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@619944a7, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@294aaa6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1f612968, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2ee949d4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@57e9cd2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2298d741, org.springframework.test.context.event.EventPublishingTestExecutionListener@34a48013, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@50e7d8ba, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@210e4678, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4548bfc7, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@557c0b65, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3b303b78, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@685e97e0]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -116,13 +116,13 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.6)
 
-2022-07-02 15:14:47.658  INFO 52137 --- [    Test worker] h.w.r.web.RecipeRestControllerTest       : Starting RecipeRestControllerTest using Java 17.0.2 on MacBook-Air-von-Leon.local with PID 52137 (started by leonkorth in /Users/leonkorth/Documents/Uni/2022_HTW_SoSe_WI/WEBTECH/prog/recipe-management-app)
-2022-07-02 15:14:47.658  INFO 52137 --- [    Test worker] h.w.r.web.RecipeRestControllerTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2022-07-02 15:14:47.780  INFO 52137 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2022-07-02 15:14:47.780  INFO 52137 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2022-07-02 15:14:47.781  INFO 52137 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2022-07-02 15:14:47.785  INFO 52137 --- [    Test worker] h.w.r.web.RecipeRestControllerTest       : Started RecipeRestControllerTest in 0.135 seconds (JVM running for 2.971)
-2022-07-02 15:14:47.795  WARN 52137 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity htwberlin.webtech.recipemanagementapp.web.RecipeRestController.createRecipe(htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity): [Field error in object 'recipeEntity' on field 'name': rejected value [x]; codes [Size.recipeEntity.name,Size.name,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [recipeEntity.name,name]; arguments []; default message [name],30,3]; default message [please provide a name between 3 and 30 characters ]] ]
+2022-07-04 10:38:21.944  INFO 84450 --- [    Test worker] h.w.r.web.RecipeRestControllerTest       : Starting RecipeRestControllerTest using Java 17.0.2 on MacBook-Air-von-Leon.local with PID 84450 (started by leonkorth in /Users/leonkorth/Documents/Uni/2022_HTW_SoSe_WI/WEBTECH/prog/recipe-management-app)
+2022-07-04 10:38:21.944  INFO 84450 --- [    Test worker] h.w.r.web.RecipeRestControllerTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2022-07-04 10:38:22.035  INFO 84450 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-07-04 10:38:22.035  INFO 84450 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-07-04 10:38:22.035  INFO 84450 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-07-04 10:38:22.038  INFO 84450 --- [    Test worker] h.w.r.web.RecipeRestControllerTest       : Started RecipeRestControllerTest in 0.1 seconds (JVM running for 3.085)
+2022-07-04 10:38:22.046  WARN 84450 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity htwberlin.webtech.recipemanagementapp.web.RecipeRestController.createRecipe(htwberlin.webtech.recipemanagementapp.persistence.RecipeEntity): [Field error in object 'recipeEntity' on field 'name': rejected value [x]; codes [Size.recipeEntity.name,Size.name,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [recipeEntity.name,name]; arguments []; default message [name],30,3]; default message [please provide a name between 3 and 30 characters ]] ]
 </pre>
 </span>
 </div>
@@ -134,7 +134,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4.1</a> at 02.07.2022, 15:14:47</p>
+<a href="http://www.gradle.org">Gradle 7.4.1</a> at 04.07.2022, 10:38:22</p>
 </div>
 </div>
 </body>
